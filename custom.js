@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded", function () { for (el of document.querySelectorAll('[ctc]')) { el.title = 'Click to copy'; el.addEventListener('click', ev => { ev.preventDefault(); navigator.clipboard.writeText(ev.target.innerText); }) } }, false);
