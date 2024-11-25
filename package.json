@@ -1,0 +1,15 @@
+{
+  "name": "custom-style",
+  "version": "0.0.1",
+  "description": "https://github.com/pedrosiqueira/custom-style",
+  "scripts": {
+    "build": "pnpm run minify-js && pnpm run minify-css",
+    "minify-js": "terser custom.js -o custom.min.js --compress --mangle",
+    "minify-css": "lightningcss custom.css -o custom.min.css --minify"
+  },
+  "author": "PedroSiqueira",
+  "devDependencies": {
+    "lightningcss-cli": "^1.28.2",
+    "terser": "^5.36.0"
+  }
+}
