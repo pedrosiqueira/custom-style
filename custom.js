@@ -1,7 +1,5 @@
 function createHeadings(divWithDataHeading, chapterNumber = null) {
-    window.addEventListener("load", () => {
-        wrapDivs(document.querySelector(divWithDataHeading), 1, chapterNumber);
-    });
+    wrapDivs(document.querySelector(divWithDataHeading), 1, chapterNumber);
 }
 
 function wrapDivs(div, level = 1, currentChapter = null) {
