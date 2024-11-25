@@ -1,3 +1,7 @@
+function createHeadings(divWithDataHeading, chapterNumber = null) {
+    wrapDivs(document.querySelector(divWithDataHeading), 1, chapterNumber);
+}
+
 function wrapDivs(div, level = 1, currentChapter = null) {
     const dataHeading = div.getAttribute("data-heading");
 
