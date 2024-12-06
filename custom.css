@@ -104,3 +104,34 @@ td.hljs-ln-code {
     border-left: 6px solid blue;
     padding-left: 1%;
 }
+
+.custom-tabs {
+    border: 1px solid #ccc !important;
+}
+
+.custom-tabs-bar {
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc !important;
+    color: #000 !important;
+    background-color: #f1f1f1 !important;
+}
+
+.custom-tabs-btn {
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.custom-tabs-btn:hover {
+    background-color: #ddd;
+}
+
+.custom-tabs-btn-active {
+    color: #fff !important;
+    background-color: #616161 !important;
+}
+
+.custom-tabs-tab {
+    display: none;
+}
