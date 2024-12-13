@@ -60,6 +60,19 @@ function handleTabClick(tabButton) {
     if (targetTabContent) targetTabContent.style.display = "block";
 }
 
+class FootNote extends HTMLElement {
+    static count = 0; // Shared counter for all footnotes
+    static footnotes = {}
+    connectedCallback() {
+        const href = this.getAttribute('href');
+        if (!(href in FootNote.footnotes)) {
+            FootNote.footnotes[href] = ++FootNote.count;
+            document.querySelector(`${href}`)?.insertAdjacentHTML('afterbegin', `<sup>[${FootNote.footnotes[href]}]</sup>`);
+        }
+        this.innerHTML = `<sup><a href="${href}">[${FootNote.footnotes[href]}]</a></sup>`;
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     for (el of document.querySelectorAll('[ctc]')) {
         el.title = 'Click to copy';
@@ -68,6 +81,8 @@ document.addEventListener("DOMContentLoaded", function () {
             navigator.clipboard.writeText(ev.target.innerText);
         })
     }
+
+    customElements.define('foot-note', FootNote);
 
     initCustomTabs()
 }, false);
