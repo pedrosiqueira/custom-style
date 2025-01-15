@@ -12,6 +12,39 @@ img {
     font-size: 1.0em;
 }
 
+[ctc] {
+    /* https://blog.marcusoliveiradev.com.br/tooltip-so-com-html/ */
+    position: relative;
+    cursor: pointer;
+}
+
+[ctc]::before {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    width: max-content;
+    transform: translateX(-50%);
+    padding: 5px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+[ctc]:hover::before,
+[ctc]:active::before {
+    content: 'Clique para copiar';
+    opacity: 1;
+    visibility: visible;
+}
+
+[ctc]:focus::before {
+    /* https://stackoverflow.com/a/21200841/28627307 */
+    content: "Copiado!";
+}
+
 table.custom,
 table.custom>thead>tr>th,
 table.custom>tbody>tr>td,

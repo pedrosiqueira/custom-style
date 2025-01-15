@@ -75,7 +75,7 @@ class FootNote extends HTMLElement {
 
 document.addEventListener("DOMContentLoaded", function () {
     for (el of document.querySelectorAll('[ctc]')) {
-        el.title = 'Click to copy';
+        el.setAttribute('tabindex', '0'); // https://stackoverflow.com/a/21200841/28627307
         el.addEventListener('click', ev => {
             ev.preventDefault();
             navigator.clipboard.writeText(ev.target.innerText);
