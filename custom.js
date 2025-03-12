@@ -65,11 +65,16 @@ class FootNote extends HTMLElement {
     static footnotes = {}
     connectedCallback() {
         const href = this.getAttribute('href');
+        let newtab = false;
         if (!(href in FootNote.footnotes)) {
             FootNote.footnotes[href] = ++FootNote.count;
-            document.querySelector(`${href}`)?.insertAdjacentHTML('afterbegin', `<sup>[${FootNote.footnotes[href]}]</sup>`);
+            try {
+                document.querySelector(`${href}`)?.insertAdjacentHTML('afterbegin', `<sup>[${FootNote.footnotes[href]}]</sup>`);
+            } catch {
+                newtab = true; // este caso ocorre quando o foot-note é uma referência externa
+            }
         }
-        this.innerHTML = `<sup><a href="${href}">[${FootNote.footnotes[href]}]</a></sup>`;
+        this.innerHTML = `<sup><a href="${href}" ${newtab ? 'target="_blank"' : ''}>[${FootNote.footnotes[href]}]</a></sup>`;
     }
 }
 
