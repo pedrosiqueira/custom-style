@@ -168,3 +168,8 @@ td.hljs-ln-code {
 .custom-tabs-tab {
     display: none;
 }
+
+dialog.custom-modal::backdrop {
+    background-color: black;
+    opacity: .5;
+}

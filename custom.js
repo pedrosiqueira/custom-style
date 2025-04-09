@@ -83,9 +83,25 @@ function enableClipboardCopy() {
     });
 }
 
+function initCustomModals() {
+    document.querySelectorAll("button[data-custom-modal]").forEach(button => {
+        const modal = document.querySelector("#" + button.getAttribute("data-custom-modal"));
+        button.addEventListener("click", () => {
+            modal.showModal();
+        });
+    });
+    document.querySelectorAll("dialog.custom-modal").forEach(modal => {
+        const closeButton = document.createElement("button");
+        closeButton.textContent = "❌";
+        closeButton.addEventListener("click", () => modal.close());
+        modal.prepend(closeButton);
+    });
+}
+
 // Initialize components when DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
     enableClipboardCopy();
     customElements.define('foot-note', FootNote);
     initCustomTabs();
+    initCustomModals();
 });
