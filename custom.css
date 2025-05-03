@@ -104,6 +104,7 @@ ol.excs>li:not(.no-mark)::before {
 ol.excs>li {
     /* Change this to adjust the line color and thickness */
     border-left: 2px solid #000;
+    border-top: 1px solid #ccc;
     /* Optional: Add padding to create some space between the bar and content */
     padding-left: 10px;
     margin-block-start: 1em;
