@@ -111,6 +111,13 @@ ol.excs>li {
     margin-block-end: 1em;
 }
 
+/* põe um barra horizontal abaixo do item da lista de exercícios */
+ol.excs>li::after {
+    content: "";
+    display: block;
+    border-top: 1px solid #ccc;
+}
+
 ol.section {
     counter-reset: section;
     list-style-type: none;
