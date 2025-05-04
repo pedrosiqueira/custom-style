@@ -100,24 +100,17 @@ ol.excs>li:not(.no-mark)::before {
     content: counters(excs, ".") ". ";
 }
 
-/* põe uma barra vertical ao lado do item da lista de exercícios */
+/* põe uma barra vertical esquerda e uma barra horizontal superior em cada item da lista de exercícios */
 ol.excs>li {
-    /* Change this to adjust the line color and thickness */
-    border-left: 2px solid #000;
-    border-top: 1px solid #ccc;
-    /* Optional: Add padding to create some space between the bar and content */
-    padding-left: 10px;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+    /* barra vertical esquerda */
+    border-left: 3px solid #000;
+    /* barra horizontal superior. gambiarra: (1) border-top fica colado ao border-left, mas eu quero um espaço entre as barras. com box-shadow, coloco duas "bordas", a primeira branca, que fica colada à borda esquerda, e a segunda, sim, fica descolada. */
+    box-shadow: 0px -4px white, 0px -6px #ccc;
+    margin-top: 10px;
+    padding: 10px;
 }
 
-/* põe um barra horizontal abaixo do item da lista de exercícios */
-ol.excs>li::after {
-    content: "";
-    display: block;
-    border-top: 1px solid #ccc;
-}
-
+/* multi-level ordered list https://stackoverflow.com/q/4098195/4072641 */
 ol.section {
     counter-reset: section;
     list-style-type: none;
@@ -140,8 +133,8 @@ td.hljs-ln-code {
     padding-left: 10px;
 }
 
+/* balão de informação */
 .info {
-    /* balão de informação */
     border-left: 6px solid blue;
     padding-left: 1%;
 }
